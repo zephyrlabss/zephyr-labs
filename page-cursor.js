@@ -108,6 +108,15 @@ function cursor() {
     //append svg for gooey effect
     let gooey = document.createElement("div");
     gooey.classList.add("gooey");
+    gooey.style.cssText = `
+      line-height: 0; 
+      position: absolute;
+      top:0;
+      left:0;
+      width:0;
+      height:0;
+      overflow:hidden;
+    `;
     gooey.innerHTML +=
       '<svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="0" width="0" style="opacity:0;"><defs><filter id="goo"><feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur" /><feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 35 -15" result="goo" /><feComposite in="SourceGraphic" in2="goo" operator="atop" /></filter></defs></svg>';
 
