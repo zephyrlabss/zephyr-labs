@@ -25,11 +25,11 @@ function cursor() {
       this.el.addEventListener("mouseleave", this.onMouseLeave);
     }
 
-    onMouseEnter = () => {
+    onMouseEnter () {
       this.hoverInAnim();
     };
 
-    hoverInAnim = () => {
+    hoverInAnim () {
       if (!this.hovered) {
         this.hovered = true;
         this.animatingHover = true;
@@ -59,7 +59,7 @@ function cursor() {
       }
     };
 
-    onMouseLeave = () => {
+    onMouseLeave () {
       if (!this.animatingHover) {
         this.hoverOutAnim();
       } else {
@@ -67,7 +67,7 @@ function cursor() {
       }
     };
 
-    hoverOutAnim = () => {
+    hoverOutAnim () {
       cursor.classList.remove("hover");
       this.el.classList.remove("hover");
       this.hovered = false;
