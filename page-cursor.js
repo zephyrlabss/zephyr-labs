@@ -119,6 +119,9 @@ function cursor() {
     document.querySelectorAll("button").forEach((ee) => {
       new HoverButton(ee);
     });
+    document.querySelectorAll(".page_hover").forEach((ee) => {
+      new HoverButton(ee);
+    });
 
     buildDots();
     render();
