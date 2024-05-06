@@ -25,17 +25,14 @@ function cursor() {
       this.el.addEventListener("mouseleave", this.onMouseLeave);
     }
 
-    onMouseEnter () {
-      this.hoverInAnim();
-    };
-
-    hoverInAnim () {
+    onMouseEnter() {
+      cursor.classList.add("hover");
+      this.classList.add("hover");
       if (!this.hovered) {
+        console.log(this);
         this.hovered = true;
         this.animatingHover = true;
         this.forceOut = false;
-        cursor.classList.add("hover");
-        this.el.classList.add("hover");
         gsap.fromTo(
           cursor,
           this.timing,
@@ -51,33 +48,28 @@ function cursor() {
               this.animatingHover = false;
               if (this.forceOut) {
                 this.foceOut = false;
-                this.hoverOutAnim();
+                hoverOutAnim();
               }
             },
           }
         );
       }
-    };
+    }
 
-    onMouseLeave () {
+    onMouseLeave() {
+      cursor.classList.remove("hover");
+      this.classList.remove("hover");
       if (!this.animatingHover) {
-        this.hoverOutAnim();
+        this.hovered = false;
+        gsap.to(cursor, this.timing, {
+          opacity: 1,
+          ease: Power3.easeOut,
+          onComplete: () => {},
+        });
       } else {
         this.forceOut = true;
       }
-    };
-
-    hoverOutAnim () {
-      cursor.classList.remove("hover");
-      this.el.classList.remove("hover");
-      this.hovered = false;
-      gsap.to(cursor, this.timing, {
-        opacity: 1,
-        // mixBlendMode: "difference",
-        ease: Power3.easeOut,
-        onComplete: () => {},
-      });
-    };
+    }
   }
   class Dot {
     constructor(index = 0) {
