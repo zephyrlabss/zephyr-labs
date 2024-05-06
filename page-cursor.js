@@ -29,7 +29,6 @@ function cursor() {
       cursor.classList.add("hover");
       this.classList.add("hover");
       if (!this.hovered) {
-        console.log(this);
         this.hovered = true;
         this.animatingHover = true;
         this.forceOut = false;
