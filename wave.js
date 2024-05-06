@@ -163,4 +163,8 @@ function BannerAnim() {
   };
   init();
 }
-window.addEventListener("DOMContentLoaded", BannerAnim);
+window.addEventListener("DOMContentLoaded", function(){
+  if(window.innerWidth>991){
+    BannerAnim();
+  }
+});
